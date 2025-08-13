@@ -1,85 +1,37 @@
-// Modal Auth
-const authModal = document.getElementById('authModal');
-const loginForm = document.getElementById('loginForm');
-const registerForm = document.getElementById('registerForm');
+* { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; }
+body { background:#f0f2f5; color:#333; }
 
-function showLogin() { loginForm.style.display='block'; registerForm.style.display='none'; authModal.style.display='flex'; }
-function showRegister() { loginForm.style.display='none'; registerForm.style.display='block'; authModal.style.display='flex'; }
-function closeModal() { authModal.style.display='none'; }
+header { display:flex; justify-content:space-between; align-items:center; padding:10px 20px; background:#ff7f50; color:white; }
+header .logo { font-size:24px; font-weight:bold; }
+header nav button { margin-left:10px; padding:5px 15px; cursor:pointer; background:white; border:none; border-radius:5px; color:#ff7f50; transition:0.3s; }
+header nav button:hover { background:#ffe5dc; }
 
-// LocalStorage Auth
-function register() {
-    const user = document.getElementById('regUser').value;
-    const pass = document.getElementById('regPass').value;
-    if(user && pass){ localStorage.setItem(user, pass); alert('Đăng ký thành công!'); closeModal(); }
-    else alert('Vui lòng điền đầy đủ thông tin.');
-}
-function login() {
-    const user = document.getElementById('loginUser').value;
-    const pass = document.getElementById('loginPass').value;
-    const storedPass = localStorage.getItem(user);
-    if(storedPass && storedPass===pass){ alert('Đăng nhập thành công!'); closeModal(); }
-    else alert('Tên đăng nhập hoặc mật khẩu sai.');
-}
+.hero { position:relative; overflow:hidden; max-height:400px; }
+.hero .slides { position:relative; }
+.hero .slide { width:100%; display:none; transition:0.5s; }
+.hero .slide.active { display:block; }
 
-// Slideshow
-let slideIndex = 0;
-const slides = document.querySelectorAll('.slide');
-function showSlides() {
-    slides.forEach(s=>s.classList.remove('active'));
-    slideIndex = (slideIndex+1)%slides.length;
-    slides[slideIndex].classList.add('active');
-    setTimeout(showSlides, 3000);
-}
-showSlides();
+.filter { padding:10px; text-align:center; }
+.filter button { margin:5px; padding:5px 15px; border:none; background:#ff7f50; color:white; border-radius:5px; cursor:pointer; transition:0.3s; }
+.filter button:hover { background:#e5673c; }
 
-// Filter products
-function filterCategory(cat){
-    const products = document.querySelectorAll('.product');
-    products.forEach(p=>{
-        if(cat==='all'||p.dataset.category===cat)p.style.display='block';
-        else p.style.display='none';
-    });
-}
+.products { padding:20px; }
+.product-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:15px; }
+.product { background:white; padding:10px; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.1); text-align:center; transition:0.3s; }
+.product:hover { transform:translateY(-5px); box-shadow:0 5px 15px rgba(0,0,0,0.2); }
+.product img { width:100%; border-radius:8px; }
+.price { font-weight:bold; color:#ff7f50; margin:5px 0; }
 
-// Cart
-let cart = [];
-function addToCart(button){
-    const productDiv = button.parentElement;
-    const name = productDiv.querySelector('h3').innerText;
-    const price = parseInt(productDiv.querySelector('.price').innerText.replace('đ','').replace('.',''));
-    cart.push({name, price});
-    updateCart();
-}
+.modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:1000; }
+.modal-content { background:white; padding:20px; border-radius:10px; width:90%; max-width:400px; position:relative; max-height:90%; overflow-y:auto; }
+.modal-content input { width:100%; padding:8px; margin:5px 0; border-radius:5px; border:1px solid #ccc; }
+.modal-content button { width:100%; padding:10px; margin-top:10px; background:#ff7f50; border:none; color:white; cursor:pointer; border-radius:5px; transition:0.3s; }
+.modal-content button:hover { background:#e5673c; }
+.close { position:absolute; top:10px; right:15px; cursor:pointer; font-size:20px; }
 
-function updateCart(){
-    const cartItems = document.getElementById('cart-items');
-    const totalEl = document.getElementById('total');
-    const countEl = document.getElementById('cart-count');
-    cartItems.innerHTML = '';
-    let total = 0;
-    cart.forEach((item,index)=>{
-        const li = document.createElement('li');
-        li.innerHTML = `${item.name} - ${item.price}đ <button onclick="removeItem(${index})">X</button>`;
-        cartItems.appendChild(li);
-        total += item.price;
-    });
-    totalEl.innerText = total.toLocaleString();
-    countEl.innerText = cart.length;
-}
+footer { text-align:center; padding:15px; background:#ff7f50; color:white; margin-top:20px; }
 
-function removeItem(index){
-    cart.splice(index,1);
-    updateCart();
-}
-
-function toggleCart(){
-    const modal = document.getElementById('cart');
-    modal.style.display = (modal.style.display==='flex')?'none':'flex';
-}
-
-function checkout(){
-    if(cart.length===0){ alert('Giỏ hàng trống'); return; }
-    alert(`Thanh toán thành công! Tổng: ${cart.reduce((a,b)=>a+b.price,0).toLocaleString()}đ`);
-    cart=[]; updateCart(); toggleCart();
+@media(max-width:768px){
+    header { flex-direction:column; text-align:center; }
+    header nav { margin-top:10px; }
 }
