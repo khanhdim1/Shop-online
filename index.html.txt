@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Trung Khánh</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Shop Trung Khánh</div>
+        <nav>
+            <button onclick="showLogin()">Đăng nhập</button>
+            <button onclick="showRegister()">Đăng ký</button>
+            <button onclick="toggleCart()">Giỏ hàng (<span id="cart-count">0</span>)</button>
+        </nav>
+    </header>
+
+    <!-- Hero slideshow -->
+    <section class="hero">
+        <div class="slides">
+            <img src="images/img1.jpg" class="slide active">
+            <img src="images/img2.jpg" class="slide">
+            <img src="images/img3.jpg" class="slide">
+        </div>
+    </section>
+
+    <!-- Lọc sản phẩm -->
+    <section class="filter">
+        <button onclick="filterCategory('all')">Tất cả</button>
+        <button onclick="filterCategory('ao')">Áo</button>
+        <button onclick="filterCategory('quan')">Quần</button>
+    </section>
+
+    <!-- Sản phẩm -->
+    <section class="products">
+        <div class="product-grid">
+            <div class="product" data-category="ao">
+                <img src="images/img2.jpg" alt="Áo thun nam">
+                <h3>Áo thun nam</h3>
+                <p>Chất liệu cotton, size S-XL</p>
+                <p class="price">120.000đ</p>
+                <button onclick="addToCart(this)">Thêm vào giỏ</button>
+            </div>
+            <div class="product" data-category="quan">
+                <img src="images/img3.jpg" alt="Quần jean nữ">
+                <h3>Quần jean nữ</h3>
+                <p>Trẻ trung, nhiều size</p>
+                <p class="price">200.000đ</p>
+                <button onclick="addToCart(this)">Thêm vào giỏ</button>
+            </div>
+            <!-- Thêm sản phẩm khác -->
+        </div>
+    </section>
+
+    <!-- Giỏ hàng -->
+    <div id="cart" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="toggleCart()">&times;</span>
+            <h3>Giỏ hàng</h3>
+            <ul id="cart-items"></ul>
+            <p>Tổng: <span id="total">0</span>đ</p>
+            <button onclick="checkout()">Thanh toán</button>
+        </div>
+    </div>
+
+    <!-- Đăng nhập/Đăng ký -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="loginForm">
+                <h3>Đăng nhập</h3>
+                <input type="text" id="loginUser" placeholder="Tên đăng nhập">
+                <input type="password" id="loginPass" placeholder="Mật khẩu">
+                <button onclick="login()">Đăng nhập</button>
+            </div>
+            <div id="registerForm" style="display:none;">
+                <h3>Đăng ký</h3>
+                <input type="text" id="regUser" placeholder="Tên đăng nhập">
+                <input type="password" id="regPass" placeholder="Mật khẩu">
+                <button onclick="register()">Đăng ký</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Zalo: 0777704861 | Địa chỉ: xã Ia Sao, phường Ayunpa, Gia Lai</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
