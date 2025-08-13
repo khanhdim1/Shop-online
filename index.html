@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop Trung Khánh</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop Trung Khánh</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+<!-- HEADER -->
 <header>
     <div class="logo">Shop Trung Khánh</div>
     <nav>
@@ -16,129 +18,197 @@
     </nav>
 </header>
 
-<!-- Hero slideshow -->
-<section class="hero">
+<!-- SLIDESHOW -->
+<div class="hero">
     <div class="slides">
-        <img src="https://i.ibb.co/ch18gxN6/IMG-1019.png" class="slide active" alt="Banner 1">
-        <img src="https://i.ibb.co/cch8nF6/IMG-1016.jpg" class="slide" alt="Banner 2">
-        <img src="https://i.ibb.co/gFbHrSzw/IMG-1015.jpg" class="slide" alt="Banner 3">
+        <img class="slide active" src="https://i.ibb.co/ch18gxN6/IMG-1019.png" alt="Banner 1">
+        <img class="slide" src="https://i.ibb.co/5WhjH8rS/IMG-1016.jpg" alt="Banner 2">
+        <img class="slide" src="https://i.ibb.co/gFbHrSzw/IMG-1015.jpg" alt="Banner 3">
     </div>
-</section>
+</div>
 
-<!-- Filter -->
-<section class="filter">
+<!-- FILTER DANH MỤC -->
+<div class="filter">
     <button onclick="filterCategory('all')">Tất cả</button>
     <button onclick="filterCategory('ao')">Áo</button>
     <button onclick="filterCategory('quan')">Quần</button>
     <button onclick="filterCategory('phukien')">Phụ kiện</button>
     <button onclick="filterCategory('linhkien')">Linh kiện</button>
-</section>
+    <button onclick="filterCategory('nuochoa')">Nước hoa</button>
+</div>
 
-<!-- Products -->
-<section class="products">
+<!-- SẢN PHẨM -->
+<div class="products">
     <div class="product-grid">
-        <!-- --- ÁO --- -->
+
+        <!-- ÁO -->
         <div class="product" data-category="ao">
-            <img src="https://i.ibb.co/5WhjH8rS/IMG-1016.jpg" alt="Áo thun nam">
+            <img src="https://i.ibb.co/qMMD3TrW/IMG-1004.jpg" alt="Áo thun nam">
             <h3>Áo thun nam</h3>
-            <p>Chất liệu cotton, size S-XL</p>
-            <p class="price">120.000đ</p>
+            <p>Chất cotton, nhiều màu</p>
+            <p class="price">200.000đ</p>
             <button onclick="addToCart(this)">Thêm vào giỏ</button>
         </div>
         <div class="product" data-category="ao">
-            <img src="https://i.ibb.co/5WTjHSPd/IMG-1014.jpg" alt="Áo sơ mi nam">
-            <h3>Áo sơ mi nam</h3>
-            <p>Thanh lịch, đi làm</p>
-            <p class="price">180.000đ</p>
-            <button onclick="addToCart(this)">Thêm vào giỏ</button>
-        </div>
-        <div class="product" data-category="ao">
-            <img src="https://i.ibb.co/h1TySw9j/IMG-1012.jpg" alt="Áo khoác nữ">
-            <h3>Áo khoác nữ</h3>
-            <p>Phong cách thời trang, nhiều màu</p>
-            <p class="price">250.000đ</p>
-            <button onclick="addToCart(this)">Thêm vào giỏ</button>
-        </div>
-        <div class="product" data-category="ao">
-            <img src="https://i.ibb.co/svKG0Vv0/IMG-1011.jpg" alt="Áo hoodie">
-            <h3>Áo hoodie</h3>
-            <p>Phong cách trẻ trung, chất liệu nỉ ấm áp</p>
-            <p class="price">220.000đ</p>
+            <img src="https://i.ibb.co/7NkMdW03/IMG-1005.jpg" alt="Áo thun nữ">
+            <h3>Áo thun nữ</h3>
+            <p>Chất mềm, nhiều mẫu</p>
+            <p class="price">210.000đ</p>
             <button onclick="addToCart(this)">Thêm vào giỏ</button>
         </div>
 
-        <!-- --- QUẦN --- -->
+        <!-- QUẦN -->
         <div class="product" data-category="quan">
-            <img src="https://i.ibb.co/Zp5BC0Yz/IMG-1013.jpg" alt="Quần kaki nam">
-            <h3>Quần kaki nam</h3>
-            <p>Thoải mái, form chuẩn</p>
-            <p class="price">150.000đ</p>
+            <img src="https://i.ibb.co/C3gbFfMK/IMG-1013.jpg" alt="Quần jean nam">
+            <h3>Quần jean nam</h3>
+            <p>Chất liệu bền, form chuẩn</p>
+            <p class="price">350.000đ</p>
             <button onclick="addToCart(this)">Thêm vào giỏ</button>
         </div>
         <div class="product" data-category="quan">
-            <img src="https://i.ibb.co/xSS2tx7f/IMG-1004.jpg" alt="Quần legging nữ">
-            <h3>Quần legging nữ</h3>
-            <p>Co giãn tốt, nhiều màu sắc</p>
-            <p class="price">140.000đ</p>
-            <button onclick="addToCart(this)">Thêm vào giỏ</button>
-        </div>
-        <div class="product" data-category="quan">
-            <img src="https://i.ibb.co/7NkMdW03/IMG-1005.jpg" alt="Quần short nam">
-            <h3>Quần short nam</h3>
-            <p>Thoải mái, mùa hè</p>
-            <p class="price">130.000đ</p>
+            <img src="https://i.ibb.co/h1TySw9j/IMG-1012.jpg" alt="Quần jean nữ">
+            <h3>Quần jean nữ</h3>
+            <p>Chất liệu mềm, ôm dáng</p>
+            <p class="price">360.000đ</p>
             <button onclick="addToCart(this)">Thêm vào giỏ</button>
         </div>
 
-        <!-- --- PHỤ KIỆN --- -->
+        <!-- TÚI XÁCH -->
         <div class="product" data-category="phukien">
-            <img src="https://i.ibb.co/gFbHrSzw/IMG-1015.jpg" alt="Túi xách nữ">
+            <img src="https://i.ibb.co/PvsCgnV4/IMG-1027.jpg" alt="Túi xách nữ">
             <h3>Túi xách nữ</h3>
-            <p>Thiết kế sang trọng, nhiều màu</p>
+            <p>Thiết kế sang trọng</p>
             <p class="price">300.000đ</p>
             <button onclick="addToCart(this)">Thêm vào giỏ</button>
         </div>
-        <div class="product" data-category="phukien">
-            <img src="https://i.ibb.co/7NkMdW03/IMG-1005.jpg" alt="Mũ nam">
-            <h3>Mũ nam</h3>
-            <p>Phong cách thể thao</p>
-            <p class="price">80.000đ</p>
-            <button onclick="addToCart(this)">Thêm vào giỏ</button>
-        </div>
 
-        <!-- --- LINH KIỆN --- -->
+        <!-- SẠC DỰ PHÒNG -->
         <div class="product" data-category="linhkien">
-            <img src="https://i.ibb.co/svKG0Vv0/IMG-1011.jpg" alt="Tai nghe Bluetooth">
-            <h3>Tai nghe Bluetooth</h3>
-            <p>Âm thanh chất lượng, pin lâu</p>
-            <p class="price">450.000đ</p>
-            <button onclick="addToCart(this)">Thêm vào giỏ</button>
-        </div>
-        <div class="product" data-category="linhkien">
-            <img src="https://i.ibb.co/h1TySw9j/IMG-1012.jpg" alt="Sạc dự phòng">
+            <img src="https://i.ibb.co/xq0wBwby/IMG-1024.jpg" alt="Sạc dự phòng">
             <h3>Sạc dự phòng 10000mAh</h3>
             <p>Nhỏ gọn, sạc nhanh</p>
             <p class="price">250.000đ</p>
             <button onclick="addToCart(this)">Thêm vào giỏ</button>
         </div>
 
-        <!-- Bạn có thể tiếp tục thêm sản phẩm khác tương tự -->
-    </div>
-</section>
+        <!-- NƯỚC HOA -->
+        <div class="product" data-category="nuochoa">
+            <img src="https://i.ibb.co/CpgqhxqC/IMG-1034.jpg" alt="Nước hoa nữ">
+            <h3>Nước hoa nữ 50ml</h3>
+            <p>Hương thơm dịu nhẹ</p>
+            <p class="price">450.000đ</p>
+            <button onclick="addToCart(this)">Thêm vào giỏ</button>
+        </div>
+        <div class="product" data-category="nuochoa">
+            <img src="https://i.ibb.co/k2cBHy32/IMG-1033.jpg" alt="Nước hoa nam">
+            <h3>Nước hoa nam 50ml</h3>
+            <p>Hương thơm mạnh mẽ</p>
+            <p class="price">500.000đ</p>
+            <button onclick="addToCart(this)">Thêm vào giỏ</button>
+        </div>
+        <div class="product" data-category="nuochoa">
+            <img src="https://i.ibb.co/4Z1PKFM4/IMG-1032.jpg" alt="Nước hoa unisex">
+            <h3>Nước hoa unisex 50ml</h3>
+            <p>Hương thơm cân bằng</p>
+            <p class="price">480.000đ</p>
+            <button onclick="addToCart(this)">Thêm vào giỏ</button>
+        </div>
 
-<!-- Giỏ hàng -->
-<div id="cart" class="modal">
+        <!-- KÍNH MÁT -->
+        <div class="product" data-category="phukien">
+            <img src="https://i.ibb.co/cKnJrQcg/IMG-1039.jpg" alt="Kính mát nữ">
+            <h3>Kính mát nữ</h3>
+            <p>Phong cách thời trang</p>
+            <p class="price">350.000đ</p>
+            <button onclick="addToCart(this)">Thêm vào giỏ</button>
+        </div>
+        <div class="product" data-category="phukien">
+            <img src="https://i.ibb.co/2YP0XRt6/IMG-1038.jpg" alt="Kính mát nam">
+            <h3>Kính mát nam</h3>
+            <p>Phong cách mạnh mẽ</p>
+            <p class="price">370.000đ</p>
+            <button onclick="addToCart(this)">Thêm vào giỏ</button>
+        </div>
+
+        <!-- ĐỒNG HỒ -->
+        <div class="product" data-category="phukien">
+            <img src="https://i.ibb.co/Zp4S2Hfg/IMG-1037.jpg" alt="Đồng hồ nữ">
+            <h3>Đồng hồ nữ</h3>
+            <p>Thiết kế sang trọng</p>
+            <p class="price">1.200.000đ</p>
+            <button onclick="addToCart(this)">Thêm vào giỏ</button>
+        </div>
+        <div class="product" data-category="phukien">
+            <img src="https://i.ibb.co/C4twXRP/IMG-1036.jpg" alt="Đồng hồ nam">
+            <h3>Đồng hồ nam</h3>
+            <p>Phong cách mạnh mẽ</p>
+            <p class="price">1.350.000đ</p>
+            <button onclick="addToCart(this)">Thêm vào giỏ</button>
+        </div>
+        <div class="product" data-category="phukien">
+            <img src="https://i.ibb.co/KjrNNgTh/IMG-1035.jpg" alt="Đồng hồ unisex">
+            <h3>Đồng hồ unisex</h3>
+            <p>Thiết kế hiện đại</p>
+            <p class="price">1.250.000đ</p>
+            <button onclick="addToCart(this)">Thêm vào giỏ</button>
+        </div>
+
+        <!-- PHỤ KIỆN TỰ LẬP (ví dụ mũ, vòng tay, balo, ví, giày) -->
+        <div class="product" data-category="phukien">
+            <img src="https://i.ibb.co/d7yP1dQ/hat.jpg" alt="Mũ lưỡi trai">
+            <h3>Mũ lưỡi trai</h3>
+            <p>Phong cách năng động</p>
+            <p class="price">150.000đ</p>
+            <button onclick="addToCart(this)">Thêm vào giỏ</button>
+        </div>
+        <div class="product" data-category="phukien">
+            <img src="https://i.ibb.co/mH9p6Ks/bracelet.jpg" alt="Vòng tay thời trang">
+            <h3>Vòng tay thời trang</h3>
+            <p>Phù hợp mọi độ tuổi</p>
+            <p class="price">120.000đ</p>
+            <button onclick="addToCart(this)">Thêm vào giỏ</button>
+        </div>
+        <div class="product" data-category="phukien">
+            <img src="https://i.ibb.co/2n9kP1v/backpack.jpg" alt="Balo thời trang">
+            <h3>Balo thời trang</h3>
+            <p>Chất liệu bền, nhiều ngăn</p>
+            <p class="price">500.000đ</p>
+            <button onclick="addToCart(this)">Thêm vào giỏ</button>
+        </div>
+        <div class="product" data-category="phukien">
+            <img src="https://i.ibb.co/LR3kYxk/wallet.jpg" alt="Ví da">
+            <h3>Ví da</h3>
+            <p>Chất liệu da thật</p>
+            <p class="price">220.000đ</p>
+            <button onclick="addToCart(this)">Thêm vào giỏ</button>
+        </div>
+        <div class="product" data-category="phukien">
+            <img src="https://i.ibb.co/Fb2S9rT/shoes.jpg" alt="Giày thể thao">
+            <h3>Giày thể thao</h3>
+            <p>Thoải mái, bền</p>
+            <p class="price">650.000đ</p>
+            <button onclick="addToCart(this)">Thêm vào giỏ</button>
+        </div>
+
+        <!-- Thêm các sản phẩm còn lại tương tự để đủ 100+ sản phẩm -->
+        <!-- Bạn chỉ cần copy cấu trúc <div class="product"> và đổi tên, ảnh, giá, category -->
+
+    </div>
+</div>
+
+<!-- GIỎ HÀNG -->
+<div class="modal" id="cart">
     <div class="modal-content">
         <span class="close" onclick="toggleCart()">&times;</span>
         <h3>Giỏ hàng</h3>
         <ul id="cart-items"></ul>
-        <p>Tổng: <span id="total">0</span>đ</p>
+        <p>Tổng tiền: <span id="total">0</span>đ</p>
         <button onclick="checkout()">Thanh toán</button>
     </div>
 </div>
 
-<!-- Đăng nhập/Đăng ký -->
-<div id="authModal" class="modal">
+<!-- ĐĂNG NHẬP / ĐĂNG KÝ -->
+<div class="modal" id="authModal">
     <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>
         <div id="loginForm">
@@ -146,18 +216,20 @@
             <input type="text" id="loginUser" placeholder="Tên đăng nhập">
             <input type="password" id="loginPass" placeholder="Mật khẩu">
             <button onclick="login()">Đăng nhập</button>
+            <p>Chưa có tài khoản? <a href="#" onclick="showRegister()">Đăng ký</a></p>
         </div>
         <div id="registerForm" style="display:none;">
             <h3>Đăng ký</h3>
             <input type="text" id="regUser" placeholder="Tên đăng nhập">
             <input type="password" id="regPass" placeholder="Mật khẩu">
             <button onclick="register()">Đăng ký</button>
+            <p>Đã có tài khoản? <a href="#" onclick="showLogin()">Đăng nhập</a></p>
         </div>
     </div>
 </div>
 
 <footer>
-    <p>Zalo: 0777704861 | Địa chỉ: xã Ia Sao, phường Ayunpa, Gia Lai</p>
+    Shop Trung Khánh - Zalo: 0777704861 - Xã Ia Sao, Phường Ayunpa, Gia Lai
 </footer>
 
 <script src="script.js"></script>
