@@ -7,86 +7,159 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="logo">Shop Trung Khánh</div>
-        <nav>
-            <button onclick="showLogin()">Đăng nhập</button>
-            <button onclick="showRegister()">Đăng ký</button>
-            <button onclick="toggleCart()">Giỏ hàng (<span id="cart-count">0</span>)</button>
-        </nav>
-    </header>
+<header>
+    <div class="logo">Shop Trung Khánh</div>
+    <nav>
+        <button onclick="showLogin()">Đăng nhập</button>
+        <button onclick="showRegister()">Đăng ký</button>
+        <button onclick="toggleCart()">Giỏ hàng (<span id="cart-count">0</span>)</button>
+    </nav>
+</header>
 
-    <!-- Hero slideshow -->
-    <section class="hero">
-        <div class="slides">
-            <img src="images/img1.jpg" class="slide active">
-            <img src="images/img2.jpg" class="slide">
-            <img src="images/img3.jpg" class="slide">
+<!-- Hero slideshow -->
+<section class="hero">
+    <div class="slides">
+        <img src="https://i.ibb.co/ch18gxN6/IMG-1019.png" class="slide active" alt="Banner 1">
+        <img src="https://i.ibb.co/cch8nF6/IMG-1016.jpg" class="slide" alt="Banner 2">
+        <img src="https://i.ibb.co/gFbHrSzw/IMG-1015.jpg" class="slide" alt="Banner 3">
+    </div>
+</section>
+
+<!-- Filter -->
+<section class="filter">
+    <button onclick="filterCategory('all')">Tất cả</button>
+    <button onclick="filterCategory('ao')">Áo</button>
+    <button onclick="filterCategory('quan')">Quần</button>
+    <button onclick="filterCategory('phukien')">Phụ kiện</button>
+    <button onclick="filterCategory('linhkien')">Linh kiện</button>
+</section>
+
+<!-- Products -->
+<section class="products">
+    <div class="product-grid">
+        <!-- --- ÁO --- -->
+        <div class="product" data-category="ao">
+            <img src="https://i.ibb.co/5WhjH8rS/IMG-1016.jpg" alt="Áo thun nam">
+            <h3>Áo thun nam</h3>
+            <p>Chất liệu cotton, size S-XL</p>
+            <p class="price">120.000đ</p>
+            <button onclick="addToCart(this)">Thêm vào giỏ</button>
         </div>
-    </section>
-
-    <!-- Lọc sản phẩm -->
-    <section class="filter">
-        <button onclick="filterCategory('all')">Tất cả</button>
-        <button onclick="filterCategory('ao')">Áo</button>
-        <button onclick="filterCategory('quan')">Quần</button>
-    </section>
-
-    <!-- Sản phẩm -->
-    <section class="products">
-        <div class="product-grid">
-            <div class="product" data-category="ao">
-                <img src="images/img2.jpg" alt="Áo thun nam">
-                <h3>Áo thun nam</h3>
-                <p>Chất liệu cotton, size S-XL</p>
-                <p class="price">120.000đ</p>
-                <button onclick="addToCart(this)">Thêm vào giỏ</button>
-            </div>
-            <div class="product" data-category="quan">
-                <img src="images/img3.jpg" alt="Quần jean nữ">
-                <h3>Quần jean nữ</h3>
-                <p>Trẻ trung, nhiều size</p>
-                <p class="price">200.000đ</p>
-                <button onclick="addToCart(this)">Thêm vào giỏ</button>
-            </div>
-            <!-- Thêm sản phẩm khác -->
+        <div class="product" data-category="ao">
+            <img src="https://i.ibb.co/5WTjHSPd/IMG-1014.jpg" alt="Áo sơ mi nam">
+            <h3>Áo sơ mi nam</h3>
+            <p>Thanh lịch, đi làm</p>
+            <p class="price">180.000đ</p>
+            <button onclick="addToCart(this)">Thêm vào giỏ</button>
         </div>
-    </section>
+        <div class="product" data-category="ao">
+            <img src="https://i.ibb.co/h1TySw9j/IMG-1012.jpg" alt="Áo khoác nữ">
+            <h3>Áo khoác nữ</h3>
+            <p>Phong cách thời trang, nhiều màu</p>
+            <p class="price">250.000đ</p>
+            <button onclick="addToCart(this)">Thêm vào giỏ</button>
+        </div>
+        <div class="product" data-category="ao">
+            <img src="https://i.ibb.co/svKG0Vv0/IMG-1011.jpg" alt="Áo hoodie">
+            <h3>Áo hoodie</h3>
+            <p>Phong cách trẻ trung, chất liệu nỉ ấm áp</p>
+            <p class="price">220.000đ</p>
+            <button onclick="addToCart(this)">Thêm vào giỏ</button>
+        </div>
 
-    <!-- Giỏ hàng -->
-    <div id="cart" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="toggleCart()">&times;</span>
-            <h3>Giỏ hàng</h3>
-            <ul id="cart-items"></ul>
-            <p>Tổng: <span id="total">0</span>đ</p>
-            <button onclick="checkout()">Thanh toán</button>
+        <!-- --- QUẦN --- -->
+        <div class="product" data-category="quan">
+            <img src="https://i.ibb.co/Zp5BC0Yz/IMG-1013.jpg" alt="Quần kaki nam">
+            <h3>Quần kaki nam</h3>
+            <p>Thoải mái, form chuẩn</p>
+            <p class="price">150.000đ</p>
+            <button onclick="addToCart(this)">Thêm vào giỏ</button>
+        </div>
+        <div class="product" data-category="quan">
+            <img src="https://i.ibb.co/xSS2tx7f/IMG-1004.jpg" alt="Quần legging nữ">
+            <h3>Quần legging nữ</h3>
+            <p>Co giãn tốt, nhiều màu sắc</p>
+            <p class="price">140.000đ</p>
+            <button onclick="addToCart(this)">Thêm vào giỏ</button>
+        </div>
+        <div class="product" data-category="quan">
+            <img src="https://i.ibb.co/7NkMdW03/IMG-1005.jpg" alt="Quần short nam">
+            <h3>Quần short nam</h3>
+            <p>Thoải mái, mùa hè</p>
+            <p class="price">130.000đ</p>
+            <button onclick="addToCart(this)">Thêm vào giỏ</button>
+        </div>
+
+        <!-- --- PHỤ KIỆN --- -->
+        <div class="product" data-category="phukien">
+            <img src="https://i.ibb.co/gFbHrSzw/IMG-1015.jpg" alt="Túi xách nữ">
+            <h3>Túi xách nữ</h3>
+            <p>Thiết kế sang trọng, nhiều màu</p>
+            <p class="price">300.000đ</p>
+            <button onclick="addToCart(this)">Thêm vào giỏ</button>
+        </div>
+        <div class="product" data-category="phukien">
+            <img src="https://i.ibb.co/7NkMdW03/IMG-1005.jpg" alt="Mũ nam">
+            <h3>Mũ nam</h3>
+            <p>Phong cách thể thao</p>
+            <p class="price">80.000đ</p>
+            <button onclick="addToCart(this)">Thêm vào giỏ</button>
+        </div>
+
+        <!-- --- LINH KIỆN --- -->
+        <div class="product" data-category="linhkien">
+            <img src="https://i.ibb.co/svKG0Vv0/IMG-1011.jpg" alt="Tai nghe Bluetooth">
+            <h3>Tai nghe Bluetooth</h3>
+            <p>Âm thanh chất lượng, pin lâu</p>
+            <p class="price">450.000đ</p>
+            <button onclick="addToCart(this)">Thêm vào giỏ</button>
+        </div>
+        <div class="product" data-category="linhkien">
+            <img src="https://i.ibb.co/h1TySw9j/IMG-1012.jpg" alt="Sạc dự phòng">
+            <h3>Sạc dự phòng 10000mAh</h3>
+            <p>Nhỏ gọn, sạc nhanh</p>
+            <p class="price">250.000đ</p>
+            <button onclick="addToCart(this)">Thêm vào giỏ</button>
+        </div>
+
+        <!-- Bạn có thể tiếp tục thêm sản phẩm khác tương tự -->
+    </div>
+</section>
+
+<!-- Giỏ hàng -->
+<div id="cart" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="toggleCart()">&times;</span>
+        <h3>Giỏ hàng</h3>
+        <ul id="cart-items"></ul>
+        <p>Tổng: <span id="total">0</span>đ</p>
+        <button onclick="checkout()">Thanh toán</button>
+    </div>
+</div>
+
+<!-- Đăng nhập/Đăng ký -->
+<div id="authModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="loginForm">
+            <h3>Đăng nhập</h3>
+            <input type="text" id="loginUser" placeholder="Tên đăng nhập">
+            <input type="password" id="loginPass" placeholder="Mật khẩu">
+            <button onclick="login()">Đăng nhập</button>
+        </div>
+        <div id="registerForm" style="display:none;">
+            <h3>Đăng ký</h3>
+            <input type="text" id="regUser" placeholder="Tên đăng nhập">
+            <input type="password" id="regPass" placeholder="Mật khẩu">
+            <button onclick="register()">Đăng ký</button>
         </div>
     </div>
+</div>
 
-    <!-- Đăng nhập/Đăng ký -->
-    <div id="authModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <div id="loginForm">
-                <h3>Đăng nhập</h3>
-                <input type="text" id="loginUser" placeholder="Tên đăng nhập">
-                <input type="password" id="loginPass" placeholder="Mật khẩu">
-                <button onclick="login()">Đăng nhập</button>
-            </div>
-            <div id="registerForm" style="display:none;">
-                <h3>Đăng ký</h3>
-                <input type="text" id="regUser" placeholder="Tên đăng nhập">
-                <input type="password" id="regPass" placeholder="Mật khẩu">
-                <button onclick="register()">Đăng ký</button>
-            </div>
-        </div>
-    </div>
+<footer>
+    <p>Zalo: 0777704861 | Địa chỉ: xã Ia Sao, phường Ayunpa, Gia Lai</p>
+</footer>
 
-    <footer>
-        <p>Zalo: 0777704861 | Địa chỉ: xã Ia Sao, phường Ayunpa, Gia Lai</p>
-    </footer>
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
